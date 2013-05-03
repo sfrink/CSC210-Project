@@ -12,7 +12,7 @@
 	<?php
 		$username=$_GET["user"];
 		$pw=$_GET["pw"];
-		mysql_connect("localhost", "root", "put your mysql pw here");
+		mysql_connect("localhost", "root", "your mysql pw here");
 		$band=$_GET["band"];
 		$members=$_GET["members"];
 		$bio=$_GET["bio"];
@@ -27,7 +27,7 @@
 			mysql_query("INSERT INTO bio (band_id, band_name, band_members, band_bio, band_location)
 						VALUES (".$newid.", '".mysql_real_escape_string($band)."', '".mysql_real_escape_string($members)."', '".mysql_real_escape_string($bio)."', '".mysql_real_escape_string($loc)."')");
 			mysql_query("INSERT INTO users (band_id, username, password)
-					VALUES (".$newid.", '".$username."', '".$pw."')");
+					VALUES (".$newid.", '".mysql_real_escape_string($username)."', '".mysql_real_escape_string($pw)."')");
 				print "	<p>Congratulations!  You have successfully created a page for your band!</p>";
 
 			}

@@ -10,7 +10,7 @@
 
 <body>
 <?php
-	mysql_connect("localhost", "root", "put your mysql pw here");
+	mysql_connect("localhost", "root", "your mysql pw here");
 	$band=$_GET["band"];
 	$members=$_GET["members"];
 	$bio=$_GET["bio"];
@@ -22,10 +22,7 @@
 		$row=mysql_fetch_row($findid);
 		$id=$row[0];
 	}
-	mysql_query("UPDATE bio SET band_name='".mysql_real_escape_string($band)."'
-				, band_members='".mysql_real_escape_string($members)."', 
-				band_bio='".mysql_real_escape_string($bio)."', 
-				band_location='".mysql_real_escape_string($loc)."' WHERE band_id=".$id);
+	mysql_query("UPDATE bio SET band_name='".mysql_real_escape_string($band)."', band_members='".mysql_real_escape_string($members)."', band_bio='".mysql_real_escape_string($bio)."', band_location='".mysql_real_escape_string($loc)."' WHERE band_id=".$id);
 	print "	<p>Congratulations!  You have successfully edited the page for your band!</p>";
 	
 	?>
