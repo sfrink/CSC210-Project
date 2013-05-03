@@ -12,12 +12,12 @@
 	<?php
 		$username=$_GET["user"];
 		$pw=$_GET["pw"];
-		mysql_connect("localhost", "root", "your pw here");
+		mysql_connect("localhost", "root", "put your mysql pw here");
 		$band=$_GET["band"];
 		$members=$_GET["members"];
 		$bio=$_GET["bio"];
 		$loc=$_GET["location"];
-		$id=trim(strtolower($band));
+		setcookie("user", $username);
 		mysql_select_db("db1") or die(mysql_error());
 		$check_band = mysql_query("SELECT * FROM bio WHERE band_name='".$band."'");
 		$check_user = mysql_query("SELECT username FROM users WHERE username='".$username."'");

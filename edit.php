@@ -4,7 +4,7 @@
 <head>
 <title>Edit</title>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-<link href="signup.css" type="text/css" rel="stylesheet" />
+<link href="edit.css" type="text/css" rel="stylesheet" />
 
 </head>
 
@@ -13,30 +13,42 @@
  -->
 
 <body>
-	<form method="link" action="success.php">
+	<?php
+		mysql_connect("localhost", "root", "put your mysql pw here");
+		mysql_select_db("db1") or die(mysql_error());
+		if(isset($_COOKIE["user"])){
+			$username=$_COOKIE["user"];
+			$findid=mysql_query("SELECT band_id FROM users WHERE username='".$username."'");
+			$row1=mysql_fetch_row($findid);
+			$id=$row1[0];
+			$results = mysql_query("SELECT * FROM bio WHERE band_id='".$id."'");
+			$row2 = mysql_fetch_row($results);
+		}
+		else{
+			print "something went wrong";
+		}
+	?>
+	<form method="link" action="successedit.php">
 		<fieldset id="input">
-			Username:
-			<input name="user" type="text" size="12"/>
-			<br/>
-			Password:
-			<input name="pw" type="password" size="12"/>
-			<br/>
 			Band Name:
-			<input name="band" type="text" size="20" />
+			<input name="band" type="text" size="20" value= <?php print "\"".$row2[1]."\""; ?> />
 			<br/>
 			Band Members:
 			<textarea name="members" rows="4" cols="20">
-				Enter the members of your band here, one per line.
-				</textarea>
+				<?php print $row2[2]; ?>
+			</textarea>
 			<br/>
 			Band Bio:
 			<textarea name="bio" rows="4" cols="20">
-				Enter a brief bio for your band.
-				</textarea>
+				<?php print $row2[3]; ?>
+			</textarea>
+			<br/>
+			Where is your band located:
+			<input name="location" type="text" size="20" value = <?php print "\"".$row2[4]."\""; ?> />
 			<br/>
 			<input type="submit"/>
-			</fieldset>
-		</form>
+		</fieldset>
+	</form>
 	
 </body>	
 
