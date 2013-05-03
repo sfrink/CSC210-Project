@@ -31,6 +31,9 @@ Enter the members of your band here, one per line.
 Enter a brief bio for your band.
 		</textarea>
 		<br/>
+Where is your band located:
+		<input name="location" type="text" size="20"/>
+		<br/>
 		<input type="submit"/>
 	</fieldset>
 </form>
