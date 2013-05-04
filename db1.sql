@@ -27,7 +27,12 @@ CREATE TABLE `bio` (
   `band_name` varchar(100) NOT NULL,
   `band_members` varchar(1000) NOT NULL,
   `band_bio` varchar(10000) DEFAULT NULL,
-  `band_location` varchar(100) NOT NULL
+  `band_location` varchar(100) NOT NULL,
+  `band_email` varchar(100) DEFAULT NULL,
+  `band_facebook` varchar(100) DEFAULT NULL,
+  `band_myspace` varchar(100) DEFAULT NULL,
+  `band_twitter` varchar(100) DEFAULT NULL,
+  `band_picture` varchar(1000) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -37,7 +42,7 @@ CREATE TABLE `bio` (
 
 LOCK TABLES `bio` WRITE;
 /*!40000 ALTER TABLE `bio` DISABLE KEYS */;
-INSERT INTO `bio` VALUES (1,'Red Hot Chili Peppers','Anthony Kiedis, Flea, Josh Klinghoffer, Chad Smith','Bio goes here.','Los Angeles, CA');
+INSERT INTO `bio` VALUES (1,'Red Hot Chili Peppers','Anthony Kiedis, Flea, Josh Klinghoffer, Chad Smith','Bio goes here.','Los Angeles, CA','rhcp@gmail.com','http://www.facebook.com/ChiliPeppers','http://www.myspace.com/redhotchilipeppers','http://www.twitter.com/ChiliPeppers','http://images.wikia.com/music/images/3/3d/RHCP-logo.jpeg');
 /*!40000 ALTER TABLE `bio` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -54,6 +59,8 @@ CREATE TABLE `events` (
   `event_location` varchar(100) NOT NULL,
   `event_date` date DEFAULT NULL,
   `event_time` time DEFAULT NULL,
+  `event_description` varchar(10000) DEFAULT NULL,
+  `event_price` varchar(10) DEFAULT NULL,
   `band_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -64,7 +71,7 @@ CREATE TABLE `events` (
 
 LOCK TABLES `events` WRITE;
 /*!40000 ALTER TABLE `events` DISABLE KEYS */;
-INSERT INTO `events` VALUES (13,'RHCP show @Lollapalooza','Chicago, Il','2012-08-03','12:30:00',1);
+INSERT INTO `events` VALUES (13,'RHCP show @Lollapalooza','Chicago, Il','2012-08-03','12:30:00','RCHP performance at Lollapalooza','$50.00',1);
 /*!40000 ALTER TABLE `events` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -77,6 +84,7 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
   `band_id` int(11) NOT NULL,
+  `email` varchar(100) NOT NULL,
   `username` varchar(30) NOT NULL,
   `password` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -88,7 +96,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'rhcp4','california');
+INSERT INTO `users` VALUES (1,'rhcp@gmail.com','rhcp4','california');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -101,4 +109,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-05-02  0:30:44
+-- Dump completed on 2013-05-04 22:33:01
