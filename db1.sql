@@ -32,7 +32,17 @@ CREATE TABLE `bio` (
   `band_facebook` varchar(100) DEFAULT NULL,
   `band_myspace` varchar(100) DEFAULT NULL,
   `band_twitter` varchar(100) DEFAULT NULL,
-  `band_picture` varchar(1000) DEFAULT NULL
+  `band_picture` varchar(1000) DEFAULT NULL,
+  `song_1` varchar(100) DEFAULT NULL,
+  `song_2` varchar(100) DEFAULT NULL,
+  `song_3` varchar(100) DEFAULT NULL,
+  `song_4` varchar(100) DEFAULT NULL,
+  `song_5` varchar(100) DEFAULT NULL,
+  `song_6` varchar(100) DEFAULT NULL,
+  `song_7` varchar(100) DEFAULT NULL,
+  `song_8` varchar(100) DEFAULT NULL,
+  `song_9` varchar(100) DEFAULT NULL,
+  `song_10` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -42,7 +52,7 @@ CREATE TABLE `bio` (
 
 LOCK TABLES `bio` WRITE;
 /*!40000 ALTER TABLE `bio` DISABLE KEYS */;
-INSERT INTO `bio` VALUES (1,'Red Hot Chili Peppers','Anthony Kiedis, Flea, Josh Klinghoffer, Chad Smith','Bio goes here.','Los Angeles, CA','rhcp@gmail.com','http://www.facebook.com/ChiliPeppers','http://www.myspace.com/redhotchilipeppers','http://www.twitter.com/ChiliPeppers','http://images.wikia.com/music/images/3/3d/RHCP-logo.jpeg');
+INSERT INTO `bio` VALUES (1,'Red Hot Chili Peppers','Anthony Kiedis, Flea, Josh Klinghoffer, Chad Smith','Bio goes here.','Los Angeles, CA','rhcp@gmail.com','http://www.facebook.com/ChiliPeppers','http://www.myspace.com/redhotchilipeppers','http://www.twitter.com/ChiliPeppers','http://images.wikia.com/music/images/3/3d/RHCP-logo.jpeg','http://www.youtube.com/watch?v=lwlogyj7nFE','http://www.youtube.com/watch?v=YlUKcNNmywk','http://www.youtube.com/watch?v=fmXLzY8kbYA',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `bio` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -109,4 +119,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-05-04 22:33:01
+-- Dump completed on 2013-05-04 22:45:25

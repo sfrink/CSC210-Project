@@ -21,6 +21,17 @@ TABLES
 	band_myspace ( VARCHAR 100 )
 	band_twitter ( VARCHAR 100 )
 	band_picture (VARCHAR 1000000)
+	song_1 (VARCHAR 100)
+	song_2 (VARCHAR 100)
+	song_3 (VARCHAR 100)
+	song_4 (VARCHAR 100)
+	song_5 (VARCHAR 100)
+	song_6 (VARCHAR 100)
+	song_7 (VARCHAR 100)
+	song_8 (VARCHAR 100)
+	song_9 (VARCHAR 100)
+	song_10 (VARCHAR 100)
+
 
 3.) events
 	event_id ( INT, NOT NULL )
@@ -61,7 +72,7 @@ CREATE TABLE users( band_id INT NOT NULL AUTO_INCREMENT, username VARCHAR(30) NO
 Create table called "bio"
 --------------------------------------------
 
-CREATE TABLE bio( band_id INT NOT NULL, band_name VARCHAR(100) NOT NULL, band_members VARCHAR(1000) NOT NULL, band_bio VARCHAR(10000), band_location VARCHAR(100) NOT NULL, band_email VARCHAR(100), band_facebook VARCHAR(100), band_myspace VARCHAR(100), band_twitter VARCHAR(100), band_picture VARCHAR(1000) );
+CREATE TABLE bio( band_id INT NOT NULL, band_name VARCHAR(100) NOT NULL, band_members VARCHAR(1000) NOT NULL, band_bio VARCHAR(10000), band_location VARCHAR(100) NOT NULL, band_email VARCHAR(100), band_facebook VARCHAR(100), band_myspace VARCHAR(100), band_twitter VARCHAR(100), band_picture VARCHAR(1000), song_1 VARCHAR(100), song_2 VARCHAR(100), song_3 VARCHAR(100), song_4 VARCHAR(100), song_5 VARCHAR(100), song_6 VARCHAR(100), song_7 VARCHAR(100), song_8 VARCHAR(100), song_9 VARCHAR(100), song_10 VARCHAR(100) );
 
 ### work in progress ###
 CREATE TABLE bio( band_id INT NOT NULL PRIMARY KEY REFERENCES users(band_id), band_name VARCHAR(100) NOT NULL, band_members VARCHAR(1000) NOT NULL, band_bio VARCHAR(10000), band_location VARCHAR(100) NOT NULL );
@@ -88,7 +99,7 @@ CREATE TABLE events( band_id INT NOT NULL PRIMARY KEY REFERENCES users(band_id),
 INSERT INTO users (band_id, email, username, password) VALUES (1, 'rhcp@gmail.com', 'rhcp4', 'california');
 
 "bio"
-INSERT INTO bio (band_id, band_name, band_members, band_bio, band_location, band_email, band_facebook, band_myspace, band_twitter, band_picture) VALUES (1, 'Red Hot Chili Peppers', 'Anthony Kiedis, Flea, Josh Klinghoffer, Chad Smith', 'Bio goes here.', 'Los Angeles, CA', 'rhcp@gmail.com', 'http://www.facebook.com/ChiliPeppers', 'http://www.myspace.com/redhotchilipeppers', 'http://www.twitter.com/ChiliPeppers', 'http://images.wikia.com/music/images/3/3d/RHCP-logo.jpeg');
+INSERT INTO bio (band_id, band_name, band_members, band_bio, band_location, band_email, band_facebook, band_myspace, band_twitter, band_picture, song_1, song_2, song_3) VALUES (1, 'Red Hot Chili Peppers', 'Anthony Kiedis, Flea, Josh Klinghoffer, Chad Smith', 'Bio goes here.', 'Los Angeles, CA', 'rhcp@gmail.com', 'http://www.facebook.com/ChiliPeppers', 'http://www.myspace.com/redhotchilipeppers', 'http://www.twitter.com/ChiliPeppers', 'http://images.wikia.com/music/images/3/3d/RHCP-logo.jpeg', 'http://www.youtube.com/watch?v=lwlogyj7nFE', 'http://www.youtube.com/watch?v=YlUKcNNmywk', 'http://www.youtube.com/watch?v=fmXLzY8kbYA');
 
 "events"
 INSERT INTO events (event_id, event_name, event_location, event_date, event_time, event_description, event_price, band_id) VALUES (13, 'RHCP show @Lollapalooza', 'Chicago, Il', '2012-08-03', '12:30:00', 'RCHP performance at Lollapalooza', '$50.00', 1);
@@ -116,12 +127,13 @@ mysql> SELECT * FROM users;
 
 
 mysql> SELECT * FROM bio;
-+---------+-----------------------+----------------------------------------------------+----------------+-----------------+----------------+--------------------------------------+-------------------------------------------+-------------------------------------+----------------------------------------------------------+
-| band_id | band_name             | band_members                                       | band_bio       | band_location   | band_email     | band_facebook                        | band_myspace                              | band_twitter                        | band_picture                                             |
-+---------+-----------------------+----------------------------------------------------+----------------+-----------------+----------------+--------------------------------------+-------------------------------------------+-------------------------------------+----------------------------------------------------------+
-|       1 | Red Hot Chili Peppers | Anthony Kiedis, Flea, Josh Klinghoffer, Chad Smith | Bio goes here. | Los Angeles, CA | rhcp@gmail.com | http://www.facebook.com/ChiliPeppers | http://www.myspace.com/redhotchilipeppers | http://www.twitter.com/ChiliPeppers | http://images.wikia.com/music/images/3/3d/RHCP-logo.jpeg |
-+---------+-----------------------+----------------------------------------------------+----------------+-----------------+----------------+--------------------------------------+-------------------------------------------+-------------------------------------+----------------------------------------------------------+
++---------+-----------------------+----------------------------------------------------+----------------+-----------------+----------------+--------------------------------------+-------------------------------------------+-------------------------------------+----------------------------------------------------------+--------------------------------------------+--------------------------------------------+--------------------------------------------+--------+--------+--------+--------+--------+--------+---------+
+| band_id | band_name             | band_members                                       | band_bio       | band_location   | band_email     | band_facebook                        | band_myspace                              | band_twitter                        | band_picture                                             | song_1                                     | song_2                                     | song_3                                     | song_4 | song_5 | song_6 | song_7 | song_8 | song_9 | song_10 |
++---------+-----------------------+----------------------------------------------------+----------------+-----------------+----------------+--------------------------------------+-------------------------------------------+-------------------------------------+----------------------------------------------------------+--------------------------------------------+--------------------------------------------+--------------------------------------------+--------+--------+--------+--------+--------+--------+---------+
+|       1 | Red Hot Chili Peppers | Anthony Kiedis, Flea, Josh Klinghoffer, Chad Smith | Bio goes here. | Los Angeles, CA | rhcp@gmail.com | http://www.facebook.com/ChiliPeppers | http://www.myspace.com/redhotchilipeppers | http://www.twitter.com/ChiliPeppers | http://images.wikia.com/music/images/3/3d/RHCP-logo.jpeg | http://www.youtube.com/watch?v=lwlogyj7nFE | http://www.youtube.com/watch?v=YlUKcNNmywk | http://www.youtube.com/watch?v=fmXLzY8kbYA | NULL   | NULL   | NULL   | NULL   | NULL   | NULL   | NULL    |
++---------+-----------------------+----------------------------------------------------+----------------+-----------------+----------------+--------------------------------------+-------------------------------------------+-------------------------------------+----------------------------------------------------------+--------------------------------------------+--------------------------------------------+--------------------------------------------+--------+--------+--------+--------+--------+--------+---------+
 1 row in set (0.00 sec)
+
 
 
 mysql> SELECT * FROM events;
