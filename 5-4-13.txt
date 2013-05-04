@@ -1,0 +1,73 @@
+
+We need a name for our website!!!!!
+
+======================================
+
+Cookies
+	- need "logout" button - delete cookies
+	- current method isn't so secure (but not big issue now)
+
+======================================
+
+queries.php - database queries to get info for pages
+
+======================================
+
+DATABASE:
+1.) in table "bio:
+	add email
+	add websites - Facebook, bandcamp, etc.
+	add "band sample" - url to youtube video
+	add picture - url to photo
+
+2.) in table "events"
+	add price - ticket price
+	add description - event description
+
+======================================
+
+event/band pages
+	- "play button" on side
+	- plays sample
+	- way to play youtube audio without other stuff showing?
+
+======================================
+
+youtube embed code
+	- user supplies URL
+	- we parse through it and create the embed code
+	- all on bio page
+	- use AJAX to hide when not playing?
+
+======================================
+
+choosing date
+	- HTML5?
+
+======================================
+
+Facebook "like button"
+
+1.) Add to body
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>	
+
+
+2.) Add URL
+
+<div class="fb-like" data-href=" <----ADD_URL_HERE ------> " data-send="true" data-width="450" data-show-faces="true"></div>
+
+======================================
+
+Andrew - databases
+Keenan - html/css of pages
+Steve - login/create account
+
+

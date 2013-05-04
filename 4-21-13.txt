@@ -1,0 +1,71 @@
+
+Server-Side Framework / Databases
+	- store data in mySQL
+	- query with PHP
+
+Multimedia
+	- provide youtube link
+	- get "embed" code from this
+
+Database
+	- Table 1
+		Username
+		Password
+		Band ID
+		
+	- Table 2 - Event
+		Event Name
+		Location
+		Day
+		Time
+		Band ID
+
+	- Table 3
+		Band ID
+		Band Name
+		Members
+		Bio
+		Location
+
+	- 
+
+Band ID
+	
+Edit button on page - edit information
+	new page
+	text boxes
+	pull up content already in those section
+		
+Home Page
+	table of upcoming events
+	query from "event" table
+	order by date
+	search bar
+
+How do you tell is someone's signed in?
+	Cookies
+
+Pages
+	Home
+	Sign in
+	Sign Up
+	Band Page
+	Edit Band Page (similar to "sign up" page)	
+	Create Event
+	Event Page
+	Edit Event
+
+
+Duties
+	Steve: Sign-In, Sign-Out, Edit pages (band pages, events)
+	Keenan: Page skeletons
+	Andrew: Databases
+
+Github
+	before starting anything -> git pull origin master
+	
+	uploading stuff:
+		git add (file name)
+		git commit -m "enter description here"
+		git push origin master
+
