@@ -18,6 +18,12 @@ function getEventBand($eventID) {
 	return $bandID;
 }
 
+//takes eventID and returns name of event
+function getEventName($eventID) {
+	$event_name = "Hairy Shindig";
+	return $event_name;
+}
+
 //takes eventID and returns date  
 function getEventDate($eventID) {
 	/*NOTE: format doesn't matter too much as long as
@@ -92,6 +98,12 @@ function getBandEmail($bandID) {
 function getBandWebsite($bandID) {
 	$band_site = "hairygoats.org";
 	return $band_site;
+}
+
+//takes bandID and returns location of band
+function getBandLocation($bandID) {
+	$band_loc = "Rochester, NY";
+	return $band_loc;
 }
   
 ?>
