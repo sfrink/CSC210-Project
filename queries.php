@@ -3,24 +3,33 @@
 /* This file will includes all of the functions I think I'll need to call
 from the home page or band pages. These should call the appropriate queries on
 the database. This file will be included in home.php and band.php */
+	mysql_connect("localhost", "root", "your mysql pw here");
+	mysql_select_db(db1) or die(mysql_error);
 
 //returns an array of all eventID	
 function getEventList() {
-	$event_list = array(
-		1 => 100,
-	);
-  	return $event_list;
+	$results=mysql_query("SELECT event_id FROM events");
+	$i=0;
+	while($row = mysql_fetch_array($results)) {
+		$ids[$i]=$row["event_id"];
+		$i++;
+	}
+  	return $ids;
 }
 
 //takes eventID and returns host bandID
 function getEventBand($eventID) {
-	$bandID = "thehairygoats"
+	$results=mysql_query("SELECT band_id FROM events WHERE event_id=".$eventID);
+	$row=mysql_fetch_array($results);
+	$bandID=$row["band_id"];
 	return $bandID;
 }
 
 //takes eventID and returns name of event
 function getEventName($eventID) {
-	$event_name = "Hairy Shindig";
+	$results=mysql_query("SELECT event_name FROM events WHERE event_id=".$eventID);
+	$row=mysql_fetch_array($results);
+	$event_name=$row["event_name"];
 	return $event_name;
 }
 
@@ -28,82 +37,129 @@ function getEventName($eventID) {
 function getEventDate($eventID) {
 	/*NOTE: format doesn't matter too much as long as
 	it can be ordered and converted into weekdays*/
-	$event_date = "6.1.2013";
-	return event_date;
+	$results=mysql_query("SELECT event_date FROM events WHERE event_id=".$eventID);
+	$row=mysql_fetch_array($results);
+	$event_date = $row["event_date"];
+	return $event_date;
 }
 
 //takes eventID and returns time
 function getEventTime($eventID) {
-	$event_time = "20:30";
+	$results=mysql_query("SELECT event_time FROM events WHERE event_id".$eventID);
+	$row=mysql_fetch_array($results);
+	$event_time=$row["event_time"];
 	return $event_time;
 }
 
 //takes eventID and returns location of event
 function getEventLocation($eventID) {
-	$event_loc = "The Bug Jar";
+	$results=mysql_query("SELECT event_location FROM events	WHERE event_id=".$eventID);
+	$row=mysql_fetch_array($results);
+	$event_loc = $row["event_location"];
 	return $event_loc;
 }
 
 //takes eventID and returns price of show
 function getEventPrice($eventID) {
-	$event_price = 7;
+	$results=mysql_query("SELECT event_price FROM events WHERE event_id=".$eventID);
+	$row=mysql_fetch_array($results);
+	$event_price = $row["event_price"];
 	return $event_price;
 }
 
 //takes a bandID and returns band's full name
 function getBandName($bandID){
-	$band_name = ("The Hairy Goats");
+	$results=mysql_query("SELECT band_name FROM bio WHERE band_id=".$bandID);
+	$row=mysql_fetch_array($results);
+	$band_name = $row["band_name"];
 	return $band_name;
 }
 
 //takes a bandID and returns an array of eventIDs
 function getBandEvents($bandID) {
-	$band_events = array(
-		1 => 100,
-	);
-	return $band_events;
+	$results=mysql_query("SELECT event_id FROM events WHERE band_id=".$bandID);
+	$i=0;
+	while($row = mysql_fetch_array($results)) {
+		$ids[$i]=$row["event_id"];
+		$i++;
+	}
+	return $ids;
 }
 
 //takes a bandID and returns link to picture
 function getBandPic($bandID) {
-	$band_pic = "http://img.ehowcdn.com/other-people/ehow/images/a06/v4/es/make-goat-wormer-using-herbs-180x180.jpg";
+	$results=mysql_query("SELECT band_picture FROM bio WHERE band_id=".$bandID);
+	$row=mysql_fetch_array($results);
+	$band_pic=$row["band_picture"];
 	return $band_pic;
 }
 
-//takes a bandID and returns code to embed youtube vid
+//takes a bandID and returns an array of the given youtube urls
+//note that some entries in the array may be empty
+//NOTE: THIS ONLY RETURNS THE YOUTUBE URLS.  IT NEEDS TO BE CONVERTED TO AN EMBED CODE
 function getBandSample($bandID) {
-	$band_sample = "http://www.youtube.com/watch?v=PpccpglnNf0";
-	return $band_sample;
+	for($i=0;$i<10;$i++){
+		$results=mysql_query("SELECT song_".($i+1)." FROM bio WHERE band_id=".$bandID);
+		$row=mysql_fetch_array($results);
+		$music[$i]=$row["song_".($i+1)];
+	}
+	return $music;
 }
 
 //takes a bandID and returns string of bio
 function getBandBio($bandID) {
-	$band_bio = "This band rocks!";
+	$results=mysql_query("SELECT band_bio FROM bio WHERE band_id=".$bandID);
+	$row=mysql_fetch_array($results);
+	$band_bio=$row["band_bio"];
 	return $band_bio;
 }
 
 //takes a bandID and returns string of band members
 function getBandMembers($bandID) {
-	$band_members = "John Goat - guitar";
+	$results=mysql_query("SELECT band_members FROM bio WHERE band_id=".$bandID);
+	$row=mysql_fetch_array($results);
+	$band_members=$row["band_members"];
 	return $band_members;
 }
 
 //takes a bandID and returns email address
 function getBandEmail($bandID) {
-	$band_email = "john@hairygoats.org";
+	$results=mysql_query("SELECT email FROM users WHERE band_id=".$bandID);
+	$row=mysql_fetch_array($results);
+	$band_email = $row["email"];
 	return $band_email;
 }
 
-//takes a bandID and returns web address
-function getBandWebsite($bandID) {
-	$band_site = "hairygoats.org";
-	return $band_site;
+//takes a bandID and returns facebook
+function getBandFacebook($bandID) {
+	$results=mysql_query("SELECT band_facebook FROM bio WHERE band_id=".$bandID);
+	$row=mysql_fetch_array($results);
+	$band_facebook = $row["band_facebook"];
+	return $band_facebook;
+}
+	
+//takes a bandID and returns myspace
+function getBandMyspace($bandID) {
+	$results=mysql_query("SELECT band_myspace FROM bio WHERE band_id=".$bandID);
+	$row=mysql_fetch_array($results);
+	$band_myspace = $row["band_myspace"];
+	return $band_myspace;
+}
+
+//takes a bandID and returns twitter
+function getBandTwitter($bandID) {
+	$results=mysql_query("SELECT band_twitter FROM bio WHERE band_id=".$bandID);
+	$row=mysql_fetch_array($results);
+	$band_twitter = $row["band_twitter"];
+	return $band_twitter;
 }
 
 //takes bandID and returns location of band
 function getBandLocation($bandID) {
-	$band_loc = "Rochester, NY";
+	$results=mysql_query("SELECT band_location FROM bio WHERE band_id=".$bandID);
+	$row=mysql_fetch_array($results);
+	$band_loc = $row["band_location"];
 	return $band_loc;
 }
-  
+
 ?>

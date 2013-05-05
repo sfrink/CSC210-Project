@@ -23,7 +23,7 @@
 		<br/>
 		Band Members:
 		<textarea name="members" rows="4" cols="20">
-Enter the members of your band here, one per line.
+Enter the members of your band here.
 		</textarea>
 		<br/>
 		Band Bio:
@@ -34,6 +34,29 @@ Enter a brief bio for your band.
 Where is your band located:
 		<input name="location" type="text" size="20"/>
 		<br/>
+E-mail address:
+		<input name="email" type="text" size="30"/>
+		<br/>
+		Facebook page: 
+		<input name="facebook" type="text" size = "30"/>
+		<br/>
+		Myspace page:
+		<input name="myspace" type="text" size="30"/>
+		<br/>
+		Twitter page:
+		<input name="twitter" type="text" size="30"/>
+		<br/>
+		Picture:
+		<input name="pic" type="text" size="30"/>
+		<br/>
+		Enter up to 10 of your songs:
+		<br/>
+		<?php
+			for($i=1;$i<=10;$i++){
+				echo "Song ".$i.": <input name=\"song".$i."\" type=\"text\" size=\"30\"/>";
+				echo "<br/>";
+			}
+		?>
 		<input type="submit"/>
 	</fieldset>
 </form>

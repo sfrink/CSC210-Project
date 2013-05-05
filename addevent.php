@@ -18,11 +18,20 @@
 		Where is it:
 		<input name="loc" type="text" size="20"/>
 		<br/>
-		Date of event:
+		Date of event(YYYY-MM-DD):
 		<input name="date" type="text" size="20"/>
 		<br/>
-		Time of event:
+Time of event(HH:MM:SS):
 		<input name="time" type="text" size="20"/>
+		<br/>
+		Event Description:
+		<textarea name="description" rows="4" cols="20">
+Enter a brief description of the event.
+		</textarea>
+		<br/>
+		How much does the event cost to attend:
+		<input name="price" type="text" size="10">
+		<br/>
 		<input type="submit"/>
 	</fieldset>
 </form>

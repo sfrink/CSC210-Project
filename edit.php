@@ -14,7 +14,7 @@
 
 <body>
 	<?php
-		mysql_connect("localhost", "root", "put your mysql pw here");
+		mysql_connect("localhost", "root", "your mysql pw here");
 		mysql_select_db("db1") or die(mysql_error());
 		if(isset($_COOKIE["user"])){
 			$username=$_COOKIE["user"];
@@ -46,6 +46,29 @@
 			Where is your band located:
 			<input name="location" type="text" size="20" value = <?php print "\"".$row2[4]."\""; ?> />
 			<br/>
+			E-mail address:
+			<input name="email" type="text" size="30" value = <?php print "\"".$row2[5]."\""; ?>/>
+			<br/>
+			Facebook page: 
+			<input name="facebook" type="text" size = "30" value = <?php print "\"".$row2[6]."\""; ?>/>
+			<br/>
+			Myspace page:
+			<input name="myspace" type="text" size="30" value = <?php print "\"".$row2[7]."\""; ?>/>
+			<br/>
+			Twitter page:
+			<input name="twitter" type="text" size="30" value = <?php print "\"".$row2[8]."\""; ?>/>
+			<br/>
+			Picture:
+			<input name="pic" type="text" size="30" value = <?php print "\"".$row2[9]."\""; ?>/>
+			<br/>
+			Enter up to 10 of your songs:
+			<br/>
+			<?php
+				for($i=1;$i<=10;$i++){
+					echo "Song ".$i.": <input name=\"song".$i."\" type=\"text\" size=\"30\" value=\"".$row2[9+$i]."\"/>";
+					echo "<br/>";
+				}
+			?>
 			<input type="submit"/>
 		</fieldset>
 	</form>

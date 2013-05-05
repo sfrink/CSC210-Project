@@ -8,12 +8,8 @@
 
 </head>
 
-<!-- this functionality should be made a part of the home page, possibly in javascript.
-	It will  redirect to a homepage (unless we use js), but we will need to use cookies or sessions
-	to remember that a user has logged in-->
-
 <body>
-	<form method="link" action="home.php">
+	<form method="link" action="signinsuccess.php">
 		<fieldset id="input">
 			Username:
 			<input name="user" type="text" size="12"/>
