@@ -45,7 +45,7 @@ function getEventDate($eventID) {
 
 //takes eventID and returns time
 function getEventTime($eventID) {
-	$results=mysql_query("SELECT event_time FROM events WHERE event_id".$eventID);
+	$results=mysql_query("SELECT event_time FROM events WHERE event_id=".$eventID);
 	$row=mysql_fetch_array($results);
 	$event_time=$row["event_time"];
 	return $event_time;
