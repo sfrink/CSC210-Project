@@ -18,7 +18,7 @@
 <?php
 	$name=$_GET["name"];
 	$loc=$_GET["loc"];
-	mysql_connect("localhost", "root", "aerosmith");
+	mysql_connect("localhost", "root", "your pw here");
 	$date=$_GET["date"];
 	$time=$_GET["time"];
 	$desc=$_GET["description"];
