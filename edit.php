@@ -4,7 +4,7 @@
 <head>
 <title>Edit</title>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-<link href="edit.css" type="text/css" rel="stylesheet" />
+<link href="home.css" type="text/css" rel="stylesheet" />
 
 </head>
 
@@ -13,8 +13,28 @@
  -->
 
 <body>
+<div id="banner">
+<div id="banner_text">
+Roc 'N' Roll
+</div>
+</div>
+
+<nav>
+<a href="home.php">Home</a>
+<a href="about.html">About</a>
+<a href="faq.html">FAQ</a>
+<a href="browse.php">Browse Bands</a>
+<a href="band.php">My Band</a>
+<a href="signin.php">Sign In / Sign up</a>
+</nav>
+
+<div id="content_frame">
+<div id="content">
+
+
+
 	<?php
-		mysql_connect("localhost", "root", "your mysql pw here");
+		mysql_connect("localhost", "root", "your pw here");
 		mysql_select_db("db1") or die(mysql_error());
 		if(isset($_COOKIE["user"])){
 			$username=$_COOKIE["user"];
@@ -72,7 +92,8 @@
 			<input type="submit"/>
 		</fieldset>
 	</form>
-	
+	</div>
+	</div>
 </body>	
 
 </html>

@@ -4,15 +4,34 @@
 <head>
 	<title>Sign-up Success</title>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-<link href="success.css" type="text/css" rel="stylesheet" />
+<link href="home.css" type="text/css" rel="stylesheet" />
 
 </head>
 
 <body>
+	<div id="banner">
+	<div id="banner_text">
+		Roc 'N' Roll
+	</div>
+	</div>
+
+<nav>
+<a href="home.php">Home</a>
+<a href="about.html">About</a>
+<a href="faq.html">FAQ</a>
+<a href="browse.php">Browse Bands</a>
+<a href="band.php">My Band</a>
+<a href="signin.php">Sign In / Sign up</a>
+</nav>
+
+<div id="content_frame">
+<div id="content">
+
+
 	<?php
 		$username=$_GET["user"];
 		$pw=$_GET["pw"];
-		mysql_connect("localhost", "root", "your mysql pw here");
+		mysql_connect("localhost", "root", "your pw here");
 		$band=$_GET["band"];
 		$members=$_GET["members"];
 		$bio=$_GET["bio"];
@@ -42,8 +61,11 @@
 		else{
 			print "<p>A band or user with that name already exists.<p/>";
 		}
+
 		
 	?>
 	<p><a href="/project/home.php">Back to the main page</a></p>
+</div>
+</div>
 </body>
 </html>

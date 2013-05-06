@@ -4,6 +4,10 @@
 	src: url('actionj.ttf');
 }
 
+textarea{
+	display: block;
+}
+
 html, body {
 	margin: 0px;
 	padding: 0px;
