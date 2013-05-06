@@ -16,7 +16,7 @@
 	<div id="content">
 	
 	<?php
-		mysql_connect("localhost", "root", "aerosmith");
+		mysql_connect("localhost", "root", "your pw here");
 		$band=$_GET["band"];
 		$members=$_GET["members"];
 		$bio=$_GET["bio"];
