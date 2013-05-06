@@ -1,0 +1,31 @@
+add own mysql password in...
+	successedit.php
+	success.php
+	queries.php
+	eventsuccess.php
+	band.php
+	edit.php
+
+TO DO:
+Add pages
+	"About"
+	"FAQ"
+	"Browse bands page"
+
+Add "Logout" function
+
+Band Page
+Facebook "like" button
+
+Embedding youtube videos:
+	< iframe width=”300″ height=”24″ src=”http://www.youtube.com/embed/ygfXKbcW8wQ?rel=0&autohide=0&#8243; frameborder=”0″ allowfullscreen></iframe>
+
+Clean up forms
+Required fields - don't let user submit without including required fields
+
+Making banner modular
+
+
+Andrew - About, FAQ, Browse
+Steve - logout function
+Keenan - home page, band page, check if logged in, banner, formatted youtube link
