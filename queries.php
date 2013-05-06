@@ -3,7 +3,7 @@
 /* This file will includes all of the functions I think I'll need to call
 from the home page or band pages. These should call the appropriate queries on
 the database. This file will be included in home.php and band.php */
-	mysql_connect("localhost", "root", "your pw here");
+	mysql_connect("localhost", "root", "aerosmith");
 	mysql_select_db(db1) or die(mysql_error);
 
 //returns an array of all eventID	

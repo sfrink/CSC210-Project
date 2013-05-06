@@ -9,30 +9,16 @@
 </head>
 
 <body>
-<div id="banner">
-<div id="banner_text">
-Roc 'N' Roll
-</div>
-</div>
 
-<nav>
-<a href="home.php">Home</a>
-<a href="about.html">About</a>
-<a href="faq.html">FAQ</a>
-<a href="browse.php">Browse Bands</a>
-<a href="band.php">My Band</a>
-<a href="signin.php">Sign In / Sign up</a>
-</nav>
+<?php include 'header.php'; ?>
 
 <div id="content_frame">
 <div id="content">
 
-
-
 <?php
 	$name=$_GET["name"];
 	$loc=$_GET["loc"];
-	mysql_connect("localhost", "root", "your pw here");
+	mysql_connect("localhost", "root", "aerosmith");
 	$date=$_GET["date"];
 	$time=$_GET["time"];
 	$desc=$_GET["description"];
@@ -45,7 +31,7 @@ Roc 'N' Roll
 		$id=$row1[0];
 	}
 	else{
-		print "something went wrong";
+		print "Something went wrong!";
 	}
 	$IDinfo=mysql_query("SELECT event_id FROM events");
 	$newid=mysql_num_rows($IDinfo)+1;
