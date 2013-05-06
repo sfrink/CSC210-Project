@@ -39,6 +39,8 @@ Roc 'N' Roll
 			<input type="submit"/>
 		</fieldset>
 	</form>
+	<br/>
+	<a href="signup.php">Signup if you don't have an account yet</a>
 </div>
 </div>
 </body>
