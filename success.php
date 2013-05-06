@@ -18,7 +18,7 @@
 	<?php
 		$username=$_GET["user"];
 		$pw=$_GET["pw"];
-		mysql_connect("localhost", "root", "aerosmith");
+		mysql_connect("localhost", "root", "your pass here");
 		$band=$_GET["band"];
 		$members=$_GET["members"];
 		$bio=$_GET["bio"];
