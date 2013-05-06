@@ -66,14 +66,10 @@ E-mail address:
 		Picture:
 		<input name="pic" type="text" size="30"/>
 		<br/>
-		Enter up to 10 of your songs:
+		Enter a youtube url to one of your songs:
 		<br/>
-		<?php
-			for($i=1;$i<=10;$i++){
-				echo "Song ".$i.": <input name=\"song".$i."\" type=\"text\" size=\"30\"/>";
-				echo "<br/>";
-			}
-		?>
+		<input name="song" type="text" size="30"/>
+		<br/>
 		<input type="submit"/>
 	</fieldset>
 </form>

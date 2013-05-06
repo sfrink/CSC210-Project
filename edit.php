@@ -51,7 +51,7 @@ Roc 'N' Roll
 	<form method="link" action="successedit.php">
 		<fieldset id="input">
 			Band Name:
-			<input name="band" type="text" size="20" value= <?php print "\"".$row2[1]."\""; ?> />
+			<input name="band" type="text" size="20" value= <?php print "\"".$row2[1]."\""; ?> required>
 			<br/>
 			Band Members:
 			<textarea name="members" rows="4" cols="20">
@@ -81,14 +81,9 @@ Roc 'N' Roll
 			Picture:
 			<input name="pic" type="text" size="30" value = <?php print "\"".$row2[9]."\""; ?>/>
 			<br/>
-			Enter up to 10 of your songs:
+			Enter a youtube url to one of your songs:
+			<input name="song" type="text" size="50" value = <?php print "\"".$row2[10]."\""; ?>/>
 			<br/>
-			<?php
-				for($i=1;$i<=10;$i++){
-					echo "Song ".$i.": <input name=\"song".$i."\" type=\"text\" size=\"30\" value=\"".$row2[9+$i]."\"/>";
-					echo "<br/>";
-				}
-			?>
 			<input type="submit"/>
 		</fieldset>
 	</form>
