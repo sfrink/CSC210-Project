@@ -3,12 +3,23 @@
 /* This file will includes all of the functions I think I'll need to call
 from the home page or band pages. These should call the appropriate queries on
 the database. This file will be included in home.php and band.php */
-	mysql_connect("localhost", "root", "your mysql pw here");
+	mysql_connect("localhost", "root", "mysql pass");
 	mysql_select_db(db1) or die(mysql_error);
 
 //returns an array of all eventID	
 function getEventList() {
 	$results=mysql_query("SELECT event_id FROM events");
+	$i=0;
+	while($row = mysql_fetch_array($results)) {
+		$ids[$i]=$row["event_id"];
+		$i++;
+	}
+  	return $ids;
+}
+
+//returns list of all events sorted by date and time
+function getEventListInOrder() {
+	$results=mysql_query("SELECT event_id FROM events ORDER BY event_date, event_time");
 	$i=0;
 	while($row = mysql_fetch_array($results)) {
 		$ids[$i]=$row["event_id"];
@@ -65,6 +76,17 @@ function getEventPrice($eventID) {
 	$row=mysql_fetch_array($results);
 	$event_price = $row["event_price"];
 	return $event_price;
+}
+
+//returns list of all band ids alphabetically sorted by band name
+function getBandListInOrder() {
+	$results=mysql_query("SELECT band_id FROM bio ORDER BY band_name");
+	$i=0;
+	while($row = mysql_fetch_array($results)) {
+		$ids[$i]=$row["band_id"];
+		$i++;
+	}
+  	return $ids;
 }
 
 //takes a bandID and returns band's full name
@@ -137,7 +159,7 @@ function getBandFacebook($bandID) {
 	$band_facebook = $row["band_facebook"];
 	return $band_facebook;
 }
-	
+
 //takes a bandID and returns myspace
 function getBandMyspace($bandID) {
 	$results=mysql_query("SELECT band_myspace FROM bio WHERE band_id=".$bandID);
