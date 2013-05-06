@@ -23,7 +23,14 @@
 	<a href="faq.html">FAQ</a>
 	<a href="browse.php">Browse Bands</a>
 	<a href="band.php">My Band</a>
-	<a href="signin.php">Sign In / Sign up</a>
+	<?php
+		if(isset($_COOKIE["user"])){
+			print "<a href=\"logout.php\">Log out</a>";
+		}
+		else{
+			print "<a href=\"signin.php\">Sign In / Sign up</a>";
+		}
+	?>
 </nav>
 
 <div id="content_frame">
