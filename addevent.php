@@ -1,55 +1,49 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE HTML>
+<html>
 
 <head>
 <title>Add an event</title>
-<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<meta charset=utf-8" />
 <link href="home.css" type="text/css" rel="stylesheet" />
 
 </head>
 
 <body>
-<div id="banner">
-<div id="banner_text">
-Roc 'N' Roll
-</div>
-</div>
 
-<nav>
-<a href="home.php">Home</a>
-<a href="about.html">About</a>
-<a href="faq.html">FAQ</a>
-<a href="browse.php">Browse Bands</a>
-<a href="band.php">My Band</a>
-<a href="signin.php">Sign In / Sign up</a>
-</nav>
+<?php include 'header.php' ?>
 
 <div id="content_frame">
+<h2> Create an Event </h2>
 <div id="content">
-
 
 
 <form method="link" action="eventsuccess.php">
 	<fieldset id="input">
-		Name Your Event:
+		Name your event:
 		<input name="name" type="text" size="20" />
 		<br/>
-		Where is it:
+		Where is it?
 		<input name="loc" type="text" size="20"/>
 		<br/>
 		Date of event(YYYY-MM-DD):
-		<input name="date" type="text" size="20"/>
+		<input name="date" type="text" size="20" maxlength = "10"/>
 		<br/>
-Time of event(HH:MM:SS):
-		<input name="time" type="text" size="20"/>
+Time of event:
+		<select name = "time">
+			<?php
+			for ($i=0; $i<48; $i++) {
+				echo getOption($i); 
+			}
+			?>
+		</select>
 		<br/>
 		Event Description:
 		<textarea name="description" rows="4" cols="20">
 Enter a brief description of the event.
 		</textarea>
 		<br/>
-		How much does the event cost to attend:
-		<input name="price" type="text" size="10">
+		How much does the event cost to attend?
+		<input name="price" type="text" size="10" maxlength = "10">
 		<br/>
 		<input type="submit"/>
 	</fieldset>
@@ -57,5 +51,23 @@ Enter a brief description of the event.
 </div>
 </div>
 </body>
+
+<?php
+	function getOption($i) {
+		$hours = (int)($i/2);
+		if ($i % 2 == 1) {
+			$minutes = "30";
+		} else {
+			$minutes = "00";
+		}
+		//format it for viewer of form:
+		$time = $hours . ":" . $minutes;
+		//format it for what goes into the database:
+		if ($hours < 10) { $hours = "0" . $hours; }
+		$time_val = $hours . ":" . $minutes . ":" . "00";
+		
+		return "<option value = \"" . $time_val . "\">" . $time . "</option>";
+	}
+?>
 
 </html>
