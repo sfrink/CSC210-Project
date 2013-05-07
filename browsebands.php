@@ -41,8 +41,12 @@
 					$band_name = getBandName($band_id);
 					echo getEventTime($event_id)
 				?>
-				<img src= "http://www.waughsd.org/fxconsult1/userfiles/band(1).jpg" width="50" height="50" >
-				<?php echo $band_name; ?>
+				<div id = "pic">
+				<img src= <?php echo "\"" . $img_url . "\"" ?> width="60" height="60" >
+				</div>
+				<div id = "band_and_loc">
+				<a href = "band.php?id=<?php $band_id ?>"> <?php echo $band_name ?> </a> <br>
+				</div>
 			</div>
 		</html>
 		<?php
