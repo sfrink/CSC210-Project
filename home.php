@@ -9,29 +9,10 @@
 
 <body>
 
-<?php include 'queries.php'; ?>
-
-<div id="banner">
-	<div id="banner_text">
-		Roc 'N' Roll
-	</div>
-</div>
-
-<nav>
-	<a href="home.php">Home</a>
-	<a href="about.html">About</a>
-	<a href="faq.html">FAQ</a>
-	<a href="browse.php">Browse Bands</a>
-	<a href="band.php">My Band</a>
-	<?php
-		if(isset($_COOKIE["user"])){
-			print "<a href=\"logout.php\">Log out</a>";
-		}
-		else{
-			print "<a href=\"signin.php\">Sign In / Sign up</a>";
-		}
-	?>
-</nav>
+<?php 
+	include 'queries.php';
+	include 'header.php';
+?>
 
 <div id="content_frame">
 	<h2> All Events </h2>

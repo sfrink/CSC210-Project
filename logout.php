@@ -9,35 +9,21 @@
 </head>
 
 <body>
-<div id="banner">
-<div id="banner_text">
-Roc 'N' Roll
-</div>
-</div>
 
-<nav>
-<a href="home.php">Home</a>
-<a href="about.html">About</a>
-<a href="faq.html">FAQ</a>
-<a href="browse.php">Browse Bands</a>
-<a href="band.php">My Band</a>
-<a href="signin.php">Sign In / Sign up</a>
-</nav>
+<?php include 'header.php'; ?>
 
 <div id="content_frame">
-<div id="content">
-
-<?php
-	if(isset($_COOKIE["user"])){
-		setcookie("user", "", time()-3600);
-		print "<p>You have successfully logged out.<p/>";
-	}
-	else{
-		print "something went wrong";
-	}
-?>
-
-</div>
+	<div id="content">	
+	<?php
+		if(isset($_COOKIE["user"])){
+			setcookie("user", "", time()-3600);
+			print "<p>You have successfully logged out.<p/>";
+		}
+		else{
+			print "Something went wrong!";
+		}
+	?>	
+	</div>
 </div>
 </body>
 

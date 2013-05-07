@@ -9,25 +9,12 @@
 </head>
 
 <body>
-<div id="banner">
-<div id="banner_text">
-Roc 'N' Roll
-</div>
-</div>
 
-<nav>
-<a href="home.php">Home</a>
-<a href="about.html">About</a>
-<a href="faq.html">FAQ</a>
-<a href="browse.php">Browse Bands</a>
-<a href="band.php">My Band</a>
-<a href="signin.php">Sign In / Sign up</a>
-</nav>
+<?php include 'header.php'; ?>
 
 <div id="content_frame">
+<h2>Sign-In</h2>
 <div id="content">
-
-
 
 	<form method="link" action="signinsuccess.php">
 		<fieldset id="input">
@@ -40,7 +27,7 @@ Roc 'N' Roll
 		</fieldset>
 	</form>
 	<br/>
-	<a href="signup.php">Signup if you don't have an account yet</a>
+	<a href="signup.php">Sign-up if you don't have an account yet</a>
 </div>
 </div>
 </body>

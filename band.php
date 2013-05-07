@@ -1,23 +1,25 @@
-<!-- This file is just a start -Keenan -->
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 
 <head>
-	<title>Band</title>
-	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-	<link href="band.css" type="text/css" rel="stylesheet" />
+<title>Band Page</title>
+<meta charset="utf-8">
+<link href="home.css" type="text/css" rel="stylesheet" />
 </head>
 
 <body>
 
-<?php
-
-//this would be our file that holds all the php functions for querying
-//from our database. This file's name could be different if you want
-include sqlquery.php;
-
+<?php 
+	include 'queries.php';
+	include 'header.php';
 ?>
+
+<div id="content_frame">
+	<h2> Band </h2>
+	<div id="content">
+		Band Stuff!
+	</div>
+</div>
 
 </body>
 

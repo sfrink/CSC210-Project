@@ -9,29 +9,16 @@
 </head>
 
 <body>
-	<div id="banner">
-	<div id="banner_text">
-		Roc 'N' Roll
-	</div>
-	</div>
 
-<nav>
-<a href="home.php">Home</a>
-<a href="about.html">About</a>
-<a href="faq.html">FAQ</a>
-<a href="browse.php">Browse Bands</a>
-<a href="band.php">My Band</a>
-<a href="signin.php">Sign In / Sign up</a>
-</nav>
+<?php include 'header.php'; ?>
 
 <div id="content_frame">
 <div id="content">
 
-
 	<?php
 		$username=$_GET["user"];
 		$pw=$_GET["pw"];
-		mysql_connect("localhost", "root", "your pw here");
+		mysql_connect("localhost", "root", "your pass here");
 		$band=$_GET["band"];
 		$members=$_GET["members"];
 		$bio=$_GET["bio"];
@@ -55,16 +42,16 @@
 			mysql_query("INSERT INTO users (band_id, email, username, password)
 					VALUES (".$newid.", '".mysql_real_escape_string($email)."', '".mysql_real_escape_string($username)."', '".mysql_real_escape_string($pw)."')");
 				print "	<p>Congratulations!  You have successfully created a page for your band!</p>";
-
+	
 			}
 		else{
 			print "<p>A band or user with that name already exists.<p/>";
-		}
-
-		
+		}	
 	?>
 	<p><a href="/project/home.php">Back to the main page</a></p>
-</div>
-</div>
+	</div>
+	</div>
+	
 </body>
+
 </html>
