@@ -127,6 +127,7 @@
 		}
 		if ($hours == 0) {
 			$hours = 12;
+			$hours = $hours - 12;
 		}
 		if ($hours < 10) {
 			$hours = substr($hours, -1);
