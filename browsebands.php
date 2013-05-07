@@ -45,7 +45,7 @@
 				<img src= <?php echo "\"" . $img_url . "\"" ?> width="60" height="60" >
 				</div>
 				<div id = "band_and_loc">
-				<a href = "band.php"> <?php echo $band_name ?> </a> <br>
+				<a href = "band.php?id=<?php $band_id ?>"> <?php echo $band_name ?> </a> <br>
 				</div>
 			</div>
 		</html>
