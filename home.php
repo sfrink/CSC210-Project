@@ -56,11 +56,21 @@
 					$band_id = getEventBand($event_id);
 					$img_url = getBandPic($band_id);
 					$band_name = getBandName($band_id);
-					echo getEventTime($event_id)
+					$time = getEventTime($event_id);
 				?>
-				<img src= "http://www.waughsd.org/fxconsult1/userfiles/band(1).jpg" width="50" height="50" >
-				<?php echo $band_name ?> at <?php echo getEventLocation($event_id); ?>
-				<?php echo getEventPrice($event_id); ?>
+				<div id = "time">
+					<?php echo formatTime($time); ?>
+				</div>
+				<div id = "pic">
+					<img src= <?php echo "\"" . $img_url . "\"" ?> width="60" height="60" >
+				</div>
+				<div id = "band_and_loc">
+					<a href = "band.php"> <?php echo $band_name ?> </a> <br> <span id = "at">
+					at </span> <?php echo getEventLocation($event_id); ?>
+				</div>
+				<div id = "price">
+					<?php echo "<br>" . getEventPrice($event_id); ?>
+				</div>
 			</div>
 		</html>
 		<?php
@@ -75,7 +85,19 @@
 		?>
 		<html>
 			<div id="date_banner">
-				<?php echo getEventDate($event_id); ?>
+				<?php 
+					$date = getEventDate($event_id);
+					$today = date('Y-m-d');
+					$tomorrow = date('Y-m-d', strtotime("$today + 1 day"));
+					if ($date == $today) {
+						echo "Today";
+					} else if ($date == $tomorrow) {
+						echo "Tomorrow";
+					} else {
+						$date = DateTime::createFromFormat('Y-m-j', $date);
+						echo $date->format('l, F d');
+					}
+				?>
 			</div>
 		</html>
 		<?php
@@ -91,6 +113,25 @@
 		if ($event_date < $cur_date) { return TRUE;}
 		else {return FALSE;}
 	}	
+?>
+
+<?php
+	function formatTime($time) {
+		$time_ary = explode(":", $time);
+		$hours = $time_ary[0];
+		$minutes = $time_ary[1];
+		$meridian = "am";
+		if ($hours >= 12) {
+			$meridian = "pm";
+		}
+		if ($hours == 0) {
+			$hours = 12;
+		}
+		if ($hours < 10) {
+			$hours = substr($hours, -1);
+		}
+		return "<span id = \"hours\">" . $hours . "</span><span id = \"rest\">" . ":" . $minutes . $meridian . "</span>";
+	}
 ?>
 
 </html>
