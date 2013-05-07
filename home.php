@@ -12,8 +12,9 @@
 <?php
 	date_default_timezone_set('America/New_York');
 	include 'queries.php';
-	include 'header.php';
 ?>
+<?php include 'header.php'; ?>
+
 
 <div id="content_frame">
 	<h2> All Events </h2>
@@ -65,7 +66,9 @@
 					<img src= <?php echo "\"" . $img_url . "\"" ?> width="60" height="60" >
 				</div>
 				<div id = "band_and_loc">
-					<a href = "band.php"> <?php echo $band_name ?> </a> <br> <span id = "at">
+				<?php 
+					print "<a href=\"band.php?id=".$band_id."\">".$band_name."</a> <br/>";
+				?>
 					at </span> <?php echo getEventLocation($event_id); ?>
 				</div>
 				<div id = "price">
