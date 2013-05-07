@@ -93,6 +93,52 @@ h2 {
 }
 
 #row {
-	height: 60px;
-	
+    width: 100%;
+    /*display: -webkit-box;
+	-webkit-box-orient:horizontal;*/
+	height: 80px;
+}
+
+#row div {
+    display: inline-block;
+    /*-webkit-box-flex:1;*/
+    padding-top: 10px;
+}
+
+#row #time {
+    width: 18%;
+    vertical-align: top;
+}
+
+#row div #hours {
+    font-size: 48px;
+}
+
+#row #pic {
+    width: 12%;
+    margin-left: 10px;
+}
+
+#row #band_and_loc {
+    width: 22%;
+    vertical-align: top;
+    margin-right: 20px;
+}
+
+#row div a {
+    text-decoration: none;
+    font-size: 18pt;
+}
+
+#row div #at {
+    font-size: 8pt;
+}
+
+#row #price {
+    vertical-align: top;
+}
+
+hr {
+    padding: 0;
+    margin: 0;
 }
