@@ -9,15 +9,46 @@
 
 <body>
 
-	<?php include 'header.php'; ?>
+	<?php 
+		include 'queries.php';
+		include 'header.php'; 
+	?>
 	
 	<div id="content_frame">
 	<h2>Browse Bands</h2>
 	<div id="content">
-	
+		<?php
+			$band_list = getBandListInOrder();
+			foreach ($band_list as $band_id) {
+				echo getRow($band_id);
+			}
+		?>
+
 	</div>
 	</div>
 	
 </body>
+
+<!--FUNCTIONS-->
+<?php
+	function getRow($band_id) {
+		ob_start();
+		?>
+		<html>
+			<div id="row">
+				<?php 
+					$img_url = getBandPic($band_id);
+					$band_name = getBandName($band_id);
+					echo getEventTime($event_id)
+				?>
+				<img src= "http://www.waughsd.org/fxconsult1/userfiles/band(1).jpg" width="50" height="50" >
+				<?php echo $band_name; ?>
+			</div>
+		</html>
+		<?php
+		$row = ob_get_clean();
+		return $row;
+	}
+?>
 
 </html>

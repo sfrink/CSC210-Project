@@ -15,6 +15,8 @@
 	<h2>About</h2>
 	<div id="content">
 	
+	Roc 'N' Roll was created by Keenan Bartlett, Steven Frink, and Andrew Lee to help bands and music groups at the University of Rochester with publicizing upcoming events and shows. Often, these events are publicized in sources such as the Weekly Buzz, the Campus Times, and city publications, but easily get lost in the noise. By creating a web app targeted to students that caters specifically to music groups at the U of R and the Rochester, NY area, we hope to strengthen and promote a healthy music scene on campus.
+
 	</div>
 	</div>
 	
