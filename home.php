@@ -123,9 +123,11 @@
 		$meridian = "am";
 		if ($hours >= 12) {
 			$meridian = "pm";
+			$hours = $hours - 12;
 		}
 		if ($hours == 0) {
 			$hours = 12;
+			$hours = $hours - 12;
 		}
 		if ($hours < 10) {
 			$hours = substr($hours, -1);
