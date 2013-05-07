@@ -89,7 +89,7 @@
 		<div class="faq" onclick="drop_down('q9')" style="font-weight: bold; cursor: hand; cursor: pointer; padding: 5px;">
 		I still need help! My problem is still unresolved, or I have a question that is not listed here.
 			<div id="q9" class="answer" style="display:none; font-weight: normal; font-style: italic; padding: 5px 25px;">
-			We would be happy to help you out. If a problem is still unresolved, or if you have a question that is not mentioned here, send an email to alee52 <at> u <dot> rochester <dot> edu
+			We would be happy to help you out. If a problem is still unresolved, or if you have a question that is not mentioned here, send an email to alee "fifty two" A.T. u D.O.T. rochester D.O.T. edu
 			</div>
 		</div>
 
