@@ -3,7 +3,7 @@
 /* This file will includes all of the functions I think I'll need to call
 from the home page or band pages. These should call the appropriate queries on
 the database. This file will be included in home.php and band.php */
-	mysql_connect("localhost", "root", "your pw here");
+	mysql_connect("localhost", "root", "mgs4gotp!");
 	mysql_select_db(db1) or die(mysql_error);
 
 //returns an array of all eventID	
@@ -28,6 +28,12 @@ function getEventListInOrder() {
   	return $ids;
 }
 
+function getBandID($username){
+	$results=mysql_query("SELECT band_id FROM users WHERE username='".$username."'");
+	$row=mysql_fetch_array($results);
+	$bandid=$row["band_id"];
+	return $bandid;
+}
 //takes eventID and returns host bandID
 function getEventBand($eventID) {
 	$results=mysql_query("SELECT band_id FROM events WHERE event_id=".$eventID);
