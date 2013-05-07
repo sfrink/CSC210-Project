@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-  <title>FAQ</title>
+	<title>FAQ</title>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 	<link href="home.css" type="text/css" rel="stylesheet" />
 
@@ -19,6 +19,10 @@
 	<div id="content_frame">
 	<h2><?php echo getEventName($event_id); ?></h2>
 	<div id="content">
+	<hr>
+	<p>
+		<?php echo getEventDetails($event_id); ?>
+	</p>
 		
 	</div>
 	</div>
