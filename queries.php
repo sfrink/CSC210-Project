@@ -118,13 +118,12 @@ function getBandPic($bandID) {
 
 //takes a bandID and returns an array of the given youtube urls
 //note that some entries in the array may be empty
-//NOTE: THIS ONLY RETURNS THE YOUTUBE URLS.  IT NEEDS TO BE CONVERTED TO AN EMBED CODE
 function getBandSample($bandID) {
 	$results=mysql_query("SELECT song_1 FROM bio WHERE band_id=".$bandID);
 	$row=mysql_fetch_array($results);
 	$music=$row["song_1"];
 	$music=str_replace("watch", "embed", $music);
-	$music=str_replace("?v=", "/", $music);
+	$music=str_replace("?v=", "/", $music)."?autohide=0";
 	return $music;
 }
 
