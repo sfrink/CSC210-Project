@@ -9,6 +9,14 @@
 
 <body>
 
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+		 var js, fjs = d.getElementsByTagName(s)[0];
+		 if (d.getElementById(id)) return;
+		 js = d.createElement(s); js.id = id;
+		 js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+		 fjs.parentNode.insertBefore(js, fjs);
+		 }(document, 'script', 'facebook-jssdk'));</script>
 <?php 
 	include 'queries.php';
 	include 'header.php';
@@ -18,6 +26,7 @@
 
 <div id="content_frame">
 	<h2> <?php echo getBandName($band_id); ?> </h2>
+	<div class="fb-like" data-href=<?php print "\"".getBandFacebook($band_id)."\"";?> data-send="false" data-layout="button_count" data-width="450" data-show-faces="true"></div>
 	<div id="content">
 		<hr>
 		<div id = "col1">
@@ -44,10 +53,16 @@
 </div>
 
 <?php
-<div id = "owner">
-	<a href = addevent.php>Add Event</a>
-	<a href = edit.php>Edit My Page</a>
-</div>
+	if(isset($_COOKIE["user"])){
+		$userid=getBandID($_COOKIE["user"]);
+		if($userid == $band_id){
+			print "<div id = \"owner\">";
+			print "<a href = addevent.php>Add Event</a>";
+			print "<a href = edit.php>Edit My Page</a>";
+			print "</div>";
+		}
+	}
+?>
 </body>
 
 </html>
